@@ -20,7 +20,8 @@ export default {
     return {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
@@ -33,6 +34,10 @@ export default {
         })
         .then(() => {
           this.$router.push({ name: 'dashboard' })
+        })
+        .catch(err => {
+          console.log(err)
+          this.error = err.response.data
         })
     }
   }

@@ -78,7 +78,7 @@ app.post('/login', (req, res) => {
       name: userInfo.name
     })
   } else {
-    res.sendStatus(400)
+    res.status(401).send('Invalid user or password')
   }
 })
 

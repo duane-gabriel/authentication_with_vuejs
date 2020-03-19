@@ -6,6 +6,7 @@
       <label for="password">Senha:</label>
       <input v-model="password" id="password" type="password" />
       <button type="submit">Entrar</button>
+      <p>{{ error }}</p>
       Não tem uma conta? <router-link to="/register"> registre-se.</router-link>
     </form>
   </div>
@@ -16,7 +17,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
@@ -28,6 +30,9 @@ export default {
         })
         .then(() => {
           this.$router.push({ name: 'dashboard' })
+        })
+        .catch(err => {
+          this.error = err.response.data
         })
     }
   }

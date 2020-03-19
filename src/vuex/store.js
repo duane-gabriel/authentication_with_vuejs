@@ -5,7 +5,9 @@ import Axios from 'axios'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: {},
+  state: {
+    user: null
+  },
   mutations: {
     SET_USER_DATA (state, userData) {
       state.user = userData
